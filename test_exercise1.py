@@ -23,7 +23,7 @@ def test_basic():
     return
 
 def test_advanced():
-    assert pig_latinify("George") == "eorgeGay"
+    assert pig_latinify("Billy") == "illyBay"
     assert pig_latinify("Elly") == "Ellyay"
     assert pig_latinify("asdfghhjkloiytFFFv") == "asdfghhjkloiytFFFvyay"
     assert pig_latinify("phlegm") == "egmphlay"
