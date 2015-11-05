@@ -38,6 +38,7 @@ def is_equal(t1, t2):
 ###################
 # TEST FUNCTIONS ##
 ###################
+
 def test_union():
     """
     Test union operation.
@@ -56,19 +57,29 @@ def test_intersection():
     """
     Test intersection operation.
     """
-    result = [["Number", "Surname", "Age"],
+    intersection_result = [["Number", "Surname", "Age"],
               [7432, "O'Malley", 39],
               [9824, "Darkes", 38]]
 
-    assert is_equal(result, intersection(GRADUATES, MANAGERS))
+    graduates = [["Number", "Surname", "Age"],
+             [7274, "Robinson", 37],
+             [7432, "O'Malley", 39],
+             [9824, "Darkes", 38]]
+
+    managers = [["Number", "Surname", "Age"],
+            [9297, "O'Malley", 56],
+            [7432, "O'Malley", 39],
+            [9824, "Darkes", 38]]
+
+    assert is_equal(intersection(graduates, managers), intersection_result)
 
 
-def test_difference():
-    """
-    Test difference operation.
-    """
-
-    result = [["Number", "Surname", "Age"],
-              [7274, "Robinson", 37]]
-
-    assert is_equal(result, difference(GRADUATES, MANAGERS))
+# def test_difference():
+#     """
+#     Test difference operation.
+#     """
+#
+#     result = [["Number", "Surname", "Age"],
+#               [7274, "Robinson", 37]]
+#
+#     assert is_equal(result, difference(GRADUATES, MANAGERS))
