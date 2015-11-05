@@ -50,11 +50,6 @@ def remove_duplicates(l):
 
     return result
 
-"""
-def schema_compare(table1, table2):
-    if table1[0] != table2[0]
-        raise MismatchedAttributesException
-"""
 
 ######################
 # PROGRAM FUNCTIONS ##
@@ -71,7 +66,6 @@ def union(table1, table2):
     # Create new list in order to store new information for union table
     union_list = []
     # Compare two tables and check if columns and schema are equal
-
     if table1[0] == table2[0]:
         union_list = table1
         for item in table2:
@@ -84,7 +78,6 @@ def union(table1, table2):
     union_list = remove_duplicates(union_list)
     return union_list  # Return new list with unique rows that appear in either table
 
-#print union(GRADUATES, MANAGERS)
 
 def intersection(table1, table2):
     """
@@ -104,8 +97,6 @@ def intersection(table1, table2):
 
     intersection_list = remove_duplicates(intersection_list)
     return intersection_list
-
-# print intersection(GRADUATES, MANAGERS)
 
 
 def difference(table1, table2):
