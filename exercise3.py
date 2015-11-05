@@ -102,30 +102,33 @@ def intersection(table1, table2):
     else:
         raise MismatchedAttributesException
 
-#    intersection_list = remove_duplicates(intersection_list)
+    intersection_list = remove_duplicates(intersection_list)
     return intersection_list
 
 # print intersection(GRADUATES, MANAGERS)
 
 
 def difference(table1, table2):
-#     """
-#     Describe your function
-#
-#     """
-#     # Create new list in order to store new information for difference table
+    """
+
+     Describe your function
+
+    """
+    # Create new list in order to store new information for difference table
     difference_list = []
-#     # Compare two tables and check if columns and schema are equal
-#     if table1[0] == table2[0]:
-#         for item in table1:
-#             if item not in table2:
-#                 difference_list.append(item)
-#
-#     else:
-#         raise MismatchedAttributesException
-#
-#     difference_list = remove_duplicates(difference_list)
+    # Compare two tables and check if columns and schema are equal
+    if table1[0] == table2[0]:
+        difference_list.append(table1[0])
+        for item in table1:
+            if item not in table2:
+                difference_list.append(item)
+
+    else:
+        raise MismatchedAttributesException
+
+    difference_list = remove_duplicates(difference_list)
     return difference_list  # Return new list with rows from first table but not second
+
 
 
 
