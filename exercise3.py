@@ -11,46 +11,36 @@ __author__ = 'Susan Sim'
 __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
-
-
-def union(table1, table2):
-    """
-    Perform the union set operation on tables, table1 and table2.
-
-    :param table1: a table (a List of Lists)
-    :param table2: a table (a List of Lists)
-    :return: the resulting table
-    :raises: MismatchedAttributesException:
-        if tables t1 and t2 don't have the same attributes
-    """
-    return []
-
-
-def intersection(table1, table2):
-    """
-    Describe your function
-
-    """
-    return []
-
-
-def difference(table1, table2):
-    """
-    Describe your function
-
-    """
-    return []
+#
+# GRADUATES = [["Number", "Surname", "Age"],
+#              [7274, "Robinson", 37],
+#              [7432, "O'Malley", 39],
+#              [9824, "Darkes", 38]]
+#
+# MANAGERS = [["Number", "Surname", "Age"],
+#             [9297, "O'Malley", 56],
+#             [7432, "O'Malley", 39],
+#             [9824, "Darkes", 38]]
 
 
 #####################
 # HELPER FUNCTIONS ##
 #####################
+
+
+class MismatchedAttributesException(Exception):
+    """
+    Raised when attempting set operations with tables that
+    don't have the same attributes.
+    """
+    pass
+
+
 def remove_duplicates(l):
     """
     Removes duplicates from l, where l is a List of Lists.
     :param l: a List
     """
-
     d = {}
     result = []
     for row in l:
@@ -61,10 +51,76 @@ def remove_duplicates(l):
     return result
 
 
-class MismatchedAttributesException(Exception):
+######################
+# PROGRAM FUNCTIONS ##
+######################
+
+def union(table1, table2):
     """
-    Raised when attempting set operations with tables that
-    don't have the same attributes.
+    :param table1: a table (a List of Lists)
+    :param table2: a table (a List of Lists)
+    :return: the resulting table
+    :raises: MismatchedAttributesException:
+        if tables t1 and t2 don't have the same attributes
     """
-    pass
+    # Create new list in order to store new information for union table
+    union_list = []
+    # Compare two tables and check if columns and schema are equal
+    if table1[0] == table2[0]:
+        union_list = table1
+        for item in table2:
+            if item not in union_list:
+                union_list.append(item)
+
+    else:
+        raise MismatchedAttributesException
+
+    union_list = remove_duplicates(union_list)
+    return union_list  # Return new list with unique rows that appear in either table
+
+
+def intersection(table1, table2):
+    """
+    Describe your function
+
+    """
+    # Create new list in order to store new information for intersection table
+    intersection_list = []
+    # Compare two tables and check if columns and schema are equal
+    if table1[0] == table2[0]:
+        intersection_list.append(table1[0])
+        for item in table1[1:]:
+            if item in table2[1:]:
+                intersection_list.append(item)
+    else:
+        raise MismatchedAttributesException
+
+    intersection_list = remove_duplicates(intersection_list)
+    return intersection_list
+
+
+def difference(table1, table2):
+    """
+
+     Describe your function
+
+    """
+    # Create new list in order to store new information for difference table
+    difference_list = []
+    # Compare two tables and check if columns and schema are equal
+    if table1[0] == table2[0]:
+        difference_list.append(table1[0])
+        for item in table1:
+            if item not in table2:
+                difference_list.append(item)
+
+    else:
+        raise MismatchedAttributesException
+
+    difference_list = remove_duplicates(difference_list)
+    return difference_list  # Return new list with rows from first table but not second
+
+
+
+
 
