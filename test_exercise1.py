@@ -36,6 +36,11 @@ def test_errors():
     assert pig_latinify("Ke$ha") == "Error! Please only enter characters between A-Z. Please enter a word:"
     return
 
+test_basic()
 
 
 
+
+def test_other_word():
+    for item in pig_latinify("apple"):
+        assert pig_latinify("apple") == "appleyay"
