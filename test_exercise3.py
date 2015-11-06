@@ -28,24 +28,22 @@ MANAGERS = [["Number", "Surname", "Age"],
             [9824, "Darkes", 38]]
 
 APPLICANT = [["Name", "Gender", "Age", "School"],
-            ["Matt", "Male", 21, "Macmaster University"],
-            ["Katie", "Female", 22, "University od Waterloo"],
-            ["Clair", "Female", 24, "University of Toronto"],
-            ["Stephen", "Male", 23, "University of Ottawa"]]
+             ["Matt", "Male", 21, "McMaster University"],
+             ["Katie", "Female", 22, "University od Waterloo"],
+             ["Claire", "Female", 24, "University of Toronto"],
+             ["Stephen", "Male", 23, "University of Ottawa"]]
 
 CANDIDATE = [["Name", "Gender", "Age", "School"],
-           ["Ryan", "Male", 19, "SFU"],
-           ["Michael", "Male", 22, "Queens University"],
-           ["Katie", "Female", 22, "University od Waterloo"],
-           ["Stephen", "Male", 23, "University of Ottawa"]]
+             ["Ryan", "Male", 19, "SFU"],
+             ["Michael", "Male", 22, "Queens University"],
+             ["Katie", "Female", 22, "University od Waterloo"],
+             ["Stephen", "Male", 23, "University of Ottawa"]]
 
 
 
 #####################
 # HELPER FUNCTIONS ##
 #####################
-
-
 def is_equal(t1, t2):
     return sorted(t1) == sorted(t2)
 
@@ -62,41 +60,41 @@ def test_difference():
     result = [["Number", "Surname", "Age"],
               [7274, "Robinson", 37]]
 
-    result_2 =[["Name", "Gender", "Age", "School"],
-               ["Matt", "Male", 21, "Macmaster University"],
-               ["Clair", "Female", 24, "University of Toronto"],
-               ["Ryan", "Male", 19, "SFU"],
-               ["Michael", "Male", 22, "Queens University"]]
-
+    result_2 = [["Name", "Gender", "Age", "School"],
+                ["Matt", "Male", 21, "McMaster University"],
+                ["Claire", "Female", 24, "University of Toronto"],
+                ["Ryan", "Male", 19, "SFU"],
+                ["Michael", "Male", 22, "Queens University"]]
 
     assert is_equal(result, difference(GRADUATES, MANAGERS))
     assert is_equal(result_2, difference(APPLICANT,CANDIDATE))
 
-     try:
+    try:
         assert difference(GRADUATES, APPLICANT)
     except MismatchedAttributesException:
         pass
+
 
 def test_intersection():
     """
     Test intersection operation.
     """
     intersection_result = [["Number", "Surname", "Age"],
-              [7432, "O'Malley", 39],
-              [9824, "Darkes", 38]]
+                           [7432, "O'Malley", 39],
+                           [9824, "Darkes", 38]]
 
     graduates = [["Number", "Surname", "Age"],
-             [7274, "Robinson", 37],
-             [7432, "O'Malley", 39],
-             [9824, "Darkes", 38]]
+                 [7274, "Robinson", 37],
+                 [7432, "O'Malley", 39],
+                 [9824, "Darkes", 38]]
 
     managers = [["Number", "Surname", "Age"],
-            [9297, "O'Malley", 56],
-            [7432, "O'Malley", 39],
-            [9824, "Darkes", 38]]
+                [9297, "O'Malley", 56],
+                [7432, "O'Malley", 39],
+                [9824, "Darkes", 38]]
 
-    result_2 =[["Katie", "Female", 22, "University od Waterloo"],
-               ["Stephen", "Male", 23, "University of Ottawa"]]
+    result_2 = [["Katie", "Female", 22, "University od Waterloo"],
+                ["Stephen", "Male", 23, "University of Ottawa"]]
 
     assert is_equal(intersection_result, intersection(graduates, managers))
     assert is_equal(result_2, intersection(APPLICANT, CANDIDATE))
@@ -120,13 +118,12 @@ def test_union():
               [9824, "Darkes", 38]]
 
     result_2 =[["Name", "Gender", "Age", "School"],
-            ["Matt", "Male", 21, "Macmaster University"],
+            ["Matt", "Male", 21, "McMaster University"],
             ["Katie", "Female", 22, "University od Waterloo"],
-            ["Clair", "Female", 24, "University of Toronto"],
+            ["Claire", "Female", 24, "University of Toronto"],
             ["Stephen", "Male", 23, "University of Ottawa"],
             ["Ryan", "Male", 19, "SFU"],
             ["Michael", "Male", 22, "Queens University"]]
-]
 
     assert is_equal(result, union(GRADUATES, MANAGERS))
     assert is_equal(result_2,union(APPLICANT,CANDIDATE))
