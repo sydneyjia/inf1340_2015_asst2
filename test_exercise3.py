@@ -31,13 +31,15 @@ MANAGERS = [["Number", "Surname", "Age"],
 #####################
 # HELPER FUNCTIONS ##
 #####################
-def is_equal(t1, t2):
-    return set(map(tuple, t1)) == set(map(tuple, t2))
 
+
+def is_equal(t1, t2):
+    return sorted(t1) == sorted(t2)
 
 ###################
 # TEST FUNCTIONS ##
 ###################
+
 
 def test_difference():
     """
@@ -69,6 +71,7 @@ def test_intersection():
             [9824, "Darkes", 38]]
 
     assert is_equal(intersection(graduates, managers), intersection_result)
+
 
 def test_union():
     """
