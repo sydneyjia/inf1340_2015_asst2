@@ -64,7 +64,7 @@ def multi_find(input_string, substring, start, end):
     k =""
     for i in range(start,end-target_length+1):                  #Add for loop to walk through all slices of the string
         if input_string[i:i+target_length]==substring:
-            k=k+str(i)+","
+            k=k+str(i)+","                                      #Stire the serial number of all matching substring occurred in the input string.
             i+=1
     j=len(k)
     k =k[:j-1]                                                  #Delete the extra comma at the end of the string

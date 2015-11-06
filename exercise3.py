@@ -118,7 +118,7 @@ def difference(table1, table2):
         raise MismatchedAttributesException
 
     difference_list = remove_duplicates(difference_list)
-    return difference_list  # Return new list with rows from first table but not second
+    return difference_list           # Return new list with rows from first table but not second
 
 
 

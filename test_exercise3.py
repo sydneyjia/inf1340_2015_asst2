@@ -27,6 +27,19 @@ MANAGERS = [["Number", "Surname", "Age"],
             [7432, "O'Malley", 39],
             [9824, "Darkes", 38]]
 
+APPLICANT = [["Name", "Gender", "Age", "School"],
+            ["Matt", "Male", 21, "Macmaster University"],
+            ["Katie", "Female", 22, "University od Waterloo"],
+            ["Clair", "Female", 24, "University of Toronto"],
+            ["Stephen", "Male", 23, "University of Ottawa"]]
+
+CANDIDATE = [["Name", "Gender", "Age", "School"],
+           ["Ryan", "Male", 19, "SFU"],
+           ["Michael", "Male", 22, "Queens University"],
+           ["Katie", "Female", 22, "University od Waterloo"],
+           ["Stephen", "Male", 23, "University of Ottawa"]]
+
+
 
 #####################
 # HELPER FUNCTIONS ##
@@ -47,8 +60,20 @@ def test_difference():
     result = [["Number", "Surname", "Age"],
               [7274, "Robinson", 37]]
 
-    assert is_equal(result, difference(GRADUATES, MANAGERS))
+    result_2 =[["Name", "Gender", "Age", "School"],
+               ["Matt", "Male", 21, "Macmaster University"],
+               ["Clair", "Female", 24, "University of Toronto"],
+               ["Ryan", "Male", 19, "SFU"],
+               ["Michael", "Male", 22, "Queens University"]]
 
+
+    assert is_equal(result, difference(GRADUATES, MANAGERS))
+    assert is_equal(result_2, difference(APPLICANT,CANDIDATE))
+
+     try:
+        assert difference(GRADUATES, APPLICANT)
+    except MismatchedAttributesException:
+        pass
 
 def test_intersection():
     """
@@ -68,7 +93,17 @@ def test_intersection():
             [7432, "O'Malley", 39],
             [9824, "Darkes", 38]]
 
-    assert is_equal(intersection(graduates, managers), intersection_result)
+    result_2 =[["Katie", "Female", 22, "University od Waterloo"],
+               ["Stephen", "Male", 23, "University of Ottawa"]]
+
+    assert is_equal(intersection_result, intersection(graduates, managers))
+    assert is_equal(result_2, intersection(APPLICANT, CANDIDATE))
+
+    try:
+        assert intersection(GRADUATES, APPLICANT)
+    except MismatchedAttributesException:
+        pass
+
 
 def test_union():
     """
@@ -81,4 +116,20 @@ def test_union():
               [7432, "O'Malley", 39],
               [9824, "Darkes", 38]]
 
+    result_2 =[["Name", "Gender", "Age", "School"],
+            ["Matt", "Male", 21, "Macmaster University"],
+            ["Katie", "Female", 22, "University od Waterloo"],
+            ["Clair", "Female", 24, "University of Toronto"],
+            ["Stephen", "Male", 23, "University of Ottawa"],
+            ["Ryan", "Male", 19, "SFU"],
+            ["Michael", "Male", 22, "Queens University"]]
+]
+
     assert is_equal(result, union(GRADUATES, MANAGERS))
+    assert is_equal(result_2,union(APPLICANT,CANDIDATE))
+
+    # When schemas in lists do not match
+    try:
+        assert union(GRADUATES, APPLICANT)
+    except MismatchedAttributesException:
+        pass
