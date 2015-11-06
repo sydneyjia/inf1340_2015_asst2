@@ -44,13 +44,15 @@ CANDIDATE = [["Name", "Gender", "Age", "School"],
 #####################
 # HELPER FUNCTIONS ##
 #####################
-def is_equal(t1, t2):
-    return set(map(tuple, t1)) == set(map(tuple, t2))
 
+
+def is_equal(t1, t2):
+    return sorted(t1) == sorted(t2)
 
 ###################
 # TEST FUNCTIONS ##
 ###################
+
 
 def test_difference():
     """
@@ -103,6 +105,7 @@ def test_intersection():
         assert intersection(GRADUATES, APPLICANT)
     except MismatchedAttributesException:
         pass
+
 
 
 def test_union():
