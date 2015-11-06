@@ -51,7 +51,7 @@ def multi_find(input_string, substring, start, end):
     """
     Describe your function: This function displayed each occurrence of a certain substring by the sequence number
 
-    :param :input_string and substring are strings; start and end are integer numbers
+    :param :input_string and substring are strings; start and end are all integer numbers
     :return:k(a list of number indicating each occurrence of the substring)
     :raises:""(when no matching substring is found)
 

@@ -40,7 +40,7 @@ def pig_latinify(word):
                 # once arriving at a vowel, slice letters from before vowel and move to end of word
                 # add plus "ya" following the sliced consonant letters
                 return word[letter_counter:] + word[:letter_counter] + "ay"
-            # if the letter at position is not a vowel, add 1 to letter_counter and check again
+            # if the letter at position is not a vowel, add one to letter_counter and check again
             letter_counter += 1
     else:
            return "Error! Please only enter characters between A-Z. Please enter a word:"

@@ -16,7 +16,7 @@ from exercise2 import find, multi_find
 
 def test_find_basic():
     """
-    Test find function.
+     Test find function.
     """
     assert find("This is an ex-parrot", "parrot", 0, 20) == 14
     assert find("Hello Toronto!", "may", 0, 20) == -1

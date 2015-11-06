@@ -11,7 +11,7 @@ __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
-from exercise3 import union, intersection, difference
+from exercise3 import union, intersection, difference, MismatchedAttributesException
 
 
 ###########
@@ -62,9 +62,7 @@ def test_difference():
 
     result_2 = [["Name", "Gender", "Age", "School"],
                 ["Matt", "Male", 21, "McMaster University"],
-                ["Claire", "Female", 24, "University of Toronto"],
-                ["Ryan", "Male", 19, "SFU"],
-                ["Michael", "Male", 22, "Queens University"]]
+                ["Claire", "Female", 24, "University of Toronto"]]
 
     assert is_equal(result, difference(GRADUATES, MANAGERS))
     assert is_equal(result_2, difference(APPLICANT,CANDIDATE))
@@ -93,7 +91,8 @@ def test_intersection():
                 [7432, "O'Malley", 39],
                 [9824, "Darkes", 38]]
 
-    result_2 = [["Katie", "Female", 22, "University od Waterloo"],
+    result_2 = [["Name", "Gender", "Age", "School"],
+                ["Katie", "Female", 22, "University od Waterloo"],
                 ["Stephen", "Male", 23, "University of Ottawa"]]
 
     assert is_equal(intersection_result, intersection(graduates, managers))
