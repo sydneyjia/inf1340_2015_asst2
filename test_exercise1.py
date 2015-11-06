@@ -20,27 +20,17 @@ def test_basic():
     assert pig_latinify("scratch") == "atchscray"
     assert pig_latinify("is") == "isyay"
     assert pig_latinify("apple") == "appleyay"
-    return
+
 
 def test_advanced():
-    assert pig_latinify("Billy") == "illyBay"
-    assert pig_latinify("Elly") == "Ellyay"
-    assert pig_latinify("asdfghhjkloiytFFFv") == "asdfghhjkloiytFFFvyay"
+    assert pig_latinify("BILLY") == "illybay"
+    assert pig_latinify("asdfghhjkloiytffv") == "asdfghhjkloiytffvyay"
     assert pig_latinify("phlegm") == "egmphlay"
-    return
+
 
 def test_errors():
     assert pig_latinify(1234) == "Error! Please only enter characters between A-Z. Please enter a word:"
     assert pig_latinify("Elly-May") == "Error! Please only enter characters between A-Z. Please enter a word:"
     assert pig_latinify("Winston Churchill") == "Error! Please only enter characters between A-Z. Please enter a word:"
     assert pig_latinify("Ke$ha") == "Error! Please only enter characters between A-Z. Please enter a word:"
-    return
 
-test_basic()
-
-
-
-
-def test_other_word():
-    for item in pig_latinify("apple"):
-        assert pig_latinify("apple") == "appleyay"
