@@ -24,23 +24,27 @@ def find(input_string,substring,start,end):
 
     """
 
-    input_string_length = len(input_string)     # Count the length of the input string and assign it to a new variable
+    input_string_length = len(input_string)
+    # Count the length of the input string and assign it to a new variable
     target_length = len(substring)
 
-    if target_length > input_string_length:     # Test the validity of the input strings and integers
+    if target_length > input_string_length:
+        # Test the validity of the input strings and integers
         return -1
     if start > input_string_length:
         return -1
-    if start >=end:
+    if start >= end:
         return -1
 
-    # Slice the complete string with equal intervals(the length of the substring) and use for loop to run through the whole string
+    # Slice the complete string with equal intervals
+    # (the length of the substring) and use for loop to run through the whole string
     for i in range(start,end):
-        if(input_string[i:i+target_length]==substring):
-            return i                                       # If the substring is found, return the value of i to the function
+        if input_string[i:i+target_length] == substring:
+            return i  
+        # If the substring is found, return the value of i to the function
     else:
-        return -1                                          # If the substring is not found, raise -1
-
+        return -1
+        # If the substring is not found, raise -1
 
 
 def multi_find(input_string, substring, start, end):
@@ -60,14 +64,17 @@ def multi_find(input_string, substring, start, end):
     if start > input_string_length:
         return ""
 
-    i =start
-    k =""
-    for i in range(start,end-target_length+1):                  #Add for loop to walk through all slices of the string
-        if input_string[i:i+target_length]==substring:
-            k=k+str(i)+","                                      #Stire the serial number of all matching substring occurred in the input string.
-            i+=1
-    j=len(k)
-    k =k[:j-1]                                                  #Delete the extra comma at the end of the string
+    i = start
+    k = ""
+    for i in range(start,end-target_length+1):
+        # Add for loop to walk through all slices of the string
+        if input_string[i:i+target_length] == substring:
+            k = k+str(i)+","
+        # String the serial number of all matching substring occurred in the input string.
+            i += 1
+    j = len(k)
+    k = k[:j-1]
+    # Delete the extra comma at the end of the string
     return k
 
 #find()
